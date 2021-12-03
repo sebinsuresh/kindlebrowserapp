@@ -52,6 +52,11 @@ app.get("/", (req, res) => {
           } else {
             document.body.innerHTML += "Browser older than ES5 (2009). <br/>";
           }
+          if(XMLHttpRequest) {
+            document.body.innerHTML += "XMLHttpRequest available. <br/>";
+          } else {
+            document.body.innerHTML += "XMLHttpRequest not available... <br/>";
+          }
           var counter = 0;
           function addToBody() {
             var added = "hello";
