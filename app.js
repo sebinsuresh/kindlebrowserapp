@@ -3,6 +3,8 @@ const app = express();
 const port = 8081;
 
 app.get("/", (req, res) => {
+  // TODO: Find a better templating engine (hbs?).
+  // TODO: Find something to polyfill for Kindle browser.
   res.send(
     `<!DOCTYPE html>
     <html lang="en">
@@ -48,7 +50,7 @@ app.get("/", (req, res) => {
           if("ab d ".trim) {
             document.body.innerHTML += "string.trim() available. <br/>";
           } else {
-            document.body.innerHTML += "string.trim() NOT available (this browser OLD AF). <br/>";
+            document.body.innerHTML += "Browser older than ES5 (2009). <br/>";
           }
           var counter = 0;
           function addToBody() {
