@@ -17,6 +17,20 @@ function addToBody() {
   added += "<br/>";
   document.body.innerHTML += added;
   counter += 1;
-  if (counter < 10) setTimeout(addToBody, 1000);
+  if (counter < 3) setTimeout(addToBody, 1000);
 }
-setTimeout(addToBody, 500);
+// setTimeout(addToBody, 500);
+
+function reqListener() {
+  console.log(this.responseText);
+  document.body.innerHTML += "Same server ajax worked<br/>";
+}
+
+function testAPIReq() {
+  var oReq = new XMLHttpRequest();
+  oReq.addEventListener("load", reqListener);
+  oReq.open("GET", "/api");
+  oReq.send();
+}
+
+testAPIReq();
