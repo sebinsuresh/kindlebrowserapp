@@ -22,7 +22,7 @@ app.get("/", (req, res) => {
 
 // Test api call
 app.get("/api", (req, res) => {
-  res.json({ testKey: "yay?" });
+  res.json({ randval: ~~(100 * Math.random()) });
 });
 
 const port = 8081;

@@ -1,14 +1,5 @@
-if ("ab d ".trim) {
-  document.body.innerHTML += "string.trim() available.<br/>";
-} else {
-  document.body.innerHTML += "Browser older than ES5(2009). <br/>";
-}
-if (XMLHttpRequest) {
-  document.body.innerHTML += "XMLHttpRequest available. <br/>";
-} else {
-  document.body.innerHTML += "XMLHttpRequest not available... <br/>";
-}
 var counter = 0;
+const refreshdiv = document.getElementById("refresh-content");
 function addToBody() {
   var added = "hello";
   for (var i = 0; i < counter; i++) {
@@ -22,8 +13,7 @@ function addToBody() {
 // setTimeout(addToBody, 500);
 
 function reqListener() {
-  console.log(this.responseText);
-  document.body.innerHTML += "Same server ajax worked<br/>";
+  refreshdiv.innerHTML = "From Ajax call: " + this.responseText + "<br/>";
 }
 
 function testAPIReq() {
@@ -33,4 +23,4 @@ function testAPIReq() {
   oReq.send();
 }
 
-testAPIReq();
+setInterval(testAPIReq, 2000);
