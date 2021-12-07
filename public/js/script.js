@@ -1,5 +1,8 @@
 var counter = 0;
+var refreshOn = true;
 const refreshdiv = document.getElementById("refresh-content");
+const refreshbtn = document.getElementById("refresh-control-button");
+
 function addToBody() {
   var added = "hello";
   for (var i = 0; i < counter; i++) {
@@ -23,4 +26,16 @@ function testAPIReq() {
   oReq.send();
 }
 
-setInterval(testAPIReq, 2000);
+var refreshInterval = setInterval(testAPIReq, 2000);
+
+refreshbtn.addEventListener("click", function () {
+  refreshOn = !refreshOn;
+  if (!refreshOn) {
+    clearInterval(refreshInterval);
+    refreshbtn.innerText = "Start";
+    refreshdiv.innerText = "Stopped.";
+  } else {
+    refreshInterval = setInterval(testAPIReq, 2000);
+    refreshbtn.innerText = "Stop";
+  }
+});
