@@ -1,5 +1,6 @@
-const express = require("express");
-const { engine } = require("express-handlebars");
+import express from "express";
+import { engine } from "express-handlebars";
+
 // const cors = require("cors");
 const app = express();
 
@@ -15,6 +16,9 @@ app.use(express.static("public"));
 // Allow cross origin requests - might not be needed here.
 // app.use(cors());
 
+// Use the Json parser middleware from express
+app.use(express.json());
+
 app.get("/", (req, res) => {
   // TODO: Find something to polyfill for Kindle browser.
   res.render("home");
@@ -23,6 +27,11 @@ app.get("/", (req, res) => {
 // Test api call
 app.get("/api", (req, res) => {
   res.json({ randval: ~~(100 * Math.random()) });
+});
+
+app.post("/sensor", async (req, res) => {
+  console.log("Sensor data arrived!", req.body);
+  res.sendStatus(200);
 });
 
 const port = 8081;
