@@ -10,6 +10,8 @@ I've found two ways to get sensor data from HWInfo into a node program:
 
 1. Setting up alerts for individual sensors and triggering execustion of some application on that alert (what I'll use).
 2. Logging the entire sensor data and reading the tail of that log file to get the sensor data.
+3. (Might be the best approach) Use the approach Rainmeter takes: Read values written to Windows Registry by HWInfo.
+   [Read here](https://docs.rainmeter.net/tips/hwinfo/)
 
 There might be other ways using some dlls provided by HWInfo, but I wanted to see if this would work.
 
