@@ -8,5 +8,6 @@ const path = "sensor";
 fetch(`http://localhost:${port}/${path}`, {
   method: "POST",
   headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({ key1: "val1", key2: "val2" }), // dummy data
+  //   body: JSON.stringify({ key1: "val1", key2: "val2" }), // dummy data
+  body: JSON.stringify(process.argv),
 });
