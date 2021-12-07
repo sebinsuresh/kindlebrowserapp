@@ -30,7 +30,7 @@ cmd program by default!). Add the windowless nodejs executable as the program, a
 
 ## Creating windowless nodejs executable for Windows
 
-`npx create-nodew-exe "C:\Program Files\nodejs\node.exe" ./node.exe`
+`npx create-nodew-exe "C:\Program Files\nodejs\node.exe" ./nodew.exe`
 
 Change the first path to your installation of node, and the second path to where you want the windowless node executable
 to be created at.
