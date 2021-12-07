@@ -13,7 +13,7 @@ function addToBody() {
 // setTimeout(addToBody, 500);
 
 function reqListener() {
-  refreshdiv.innerHTML = "From Ajax call: " + this.responseText + "<br/>";
+  refreshdiv.innerHTML = this.responseText.replace(/[,]/g, "<br/>") + "<br/>";
 }
 
 function testAPIReq() {
