@@ -27,8 +27,9 @@ function testAPIReq() {
 }
 
 var refreshInterval = setInterval(testAPIReq, 2000);
+toggleRefreshButton(); // Kill the interval immediately.
 
-refreshbtn.addEventListener("click", function () {
+function toggleRefreshButton() {
   refreshOn = !refreshOn;
   if (!refreshOn) {
     clearInterval(refreshInterval);
@@ -38,4 +39,6 @@ refreshbtn.addEventListener("click", function () {
     refreshInterval = setInterval(testAPIReq, 2000);
     refreshbtn.innerText = "Stop";
   }
-});
+}
+
+refreshbtn.addEventListener("click", toggleRefreshButton);
